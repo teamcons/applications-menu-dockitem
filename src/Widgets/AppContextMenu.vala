@@ -90,9 +90,10 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
 
             has_system_item = true;
 
-            dock_menuitem = new Gtk.MenuItem () {
-                label = _("Add to _Dock"),
-                use_underline = true
+            dock_menuitem = new Gtk.CheckMenuItem () {
+                label = _("Keep in _Dock"),
+                use_underline = true,
+                active = false
             };
             dock_menuitem.activate.connect (dock_menuitem_activate);
 
@@ -186,9 +187,9 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
             try {
                 docked = desktop_id in dock.dbus.list_launchers ();
                 if (docked) {
-                    dock_menuitem.label = _("Remove from _Dock");
+                    dock_menuitem.active = true;
                 } else {
-                    dock_menuitem.label = _("Add to _Dock");
+                    dock_menuitem.active = false;
                 }
             } catch (GLib.Error e) {
                 critical (e.message);
