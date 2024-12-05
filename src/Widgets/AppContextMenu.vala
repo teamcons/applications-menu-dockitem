@@ -29,7 +29,7 @@ public class Slingshot.AppContextMenu : Gtk.Menu {
     private Slingshot.Backend.SwitcherooControl switcheroo_control;
     private Gtk.MenuItem uninstall_menuitem;
     private Gtk.MenuItem appcenter_menuitem;
-    private Gtk.MenuItem dock_menuitem;
+    private Gtk.CheckMenuItem dock_menuitem;
 
     private bool docked = false;
 
